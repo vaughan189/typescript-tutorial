@@ -8,6 +8,8 @@ interface TranslatedLink extends Link {
     language: string;
 }
 
+type Links = Array<Link>;
+
 const link1: TranslatedLink = {
     description:
         "TypeScript tutorial for beginners is a tutorial for all the JavaScript developers ...",
@@ -20,7 +22,7 @@ function filterByTerm(
     input: Array<Link>,
     searchTerm: string,
     lookupKey: string = "url"
-): Array<Link> {
+): Links {
     if (!searchTerm) throw Error("searchTerm cannot be empty");
     if (!input.length) throw Error("input cannot be empty");
     const regex = new RegExp(searchTerm, "i");
